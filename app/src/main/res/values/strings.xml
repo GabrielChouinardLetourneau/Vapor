@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Vapor</string>
+    <string name="home_bottom_bar_label">home</string>
+    <string name="network_bottom_bar_label">Vapor</string>
+    <string name="battery_bottom_bar_label">Vapor</string>
+    <string name="sensors_bottom_bar_label">Vapor</string>
+</resources>
