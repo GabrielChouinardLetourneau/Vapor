@@ -11,13 +11,24 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.gabcletourneau.vapor.ui.components.VaporCard
 import com.gabcletourneau.vapor.ui.navigation.Destinations
 import org.w3c.dom.Text
 
+
 @Composable
-fun HomeScreen(navController: NavHostController) {
+fun MainScreenContent(
+    viewModel: HomeScreenViewModel = hiltViewModel(),
+    navController: NavHostController
+) {
+    HomeScreen(viewModel, navController)
+}
+
+
+@Composable
+fun HomeScreen(viewModel: HomeScreenViewModel, navController: NavHostController) {
     LazyColumn {
         items(
             count = Destinations.entries.size

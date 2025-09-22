@@ -21,8 +21,11 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.composable
 import com.gabcletourneau.vapor.ui.battery.BatteryScreen
 import com.gabcletourneau.vapor.ui.home.HomeScreen
+import com.gabcletourneau.vapor.ui.home.HomeScreenViewModel
+import com.gabcletourneau.vapor.ui.home.MainScreenContent
 import com.gabcletourneau.vapor.ui.network.NetworkScreen
 import com.gabcletourneau.vapor.ui.sensors.SensorsScreen
+import com.gabcletourneau.vapor.ui.sensors.SensorsScreenContent
 import kotlinx.serialization.Serializable
 
 
@@ -52,10 +55,10 @@ fun VaporNavHost(
         startDestination = Destinations.HOME.route,
         modifier = modifier
     ) {
-        composable(route = Destinations.HOME.route) { HomeScreen(navController) }
+        composable(route = Destinations.HOME.route) { MainScreenContent(navController = navController) }
         composable(route = Destinations.NETWORK.route) { NetworkScreen() }
         composable(route = Destinations.BATTERY.route) { BatteryScreen() }
-        composable(route = Destinations.SENSORS.route) { SensorsScreen() }
+        composable(route = Destinations.SENSORS.route) { SensorsScreenContent() }
     }
 }
 
@@ -72,23 +75,6 @@ fun rememberVaporNavController(navController: NavHostController = rememberNavCon
 @Stable
 class VaporNavController(val navController: NavHostController) {
 
-//    fun upPress() {
-//        navController.navigateUp()
-//    }
-//
-//    fun navigateToBottomBarRoute(route: String) {
-//        if(route != navController.currentDestination?.route) {
-//            navController.navigate(route) {
-//                launchSingleTop = true
-//                restoreState = true
-//                // Pop up backstack to the first destination and save state.
-//                // This makes going back to the start destination when pressing back
-//                popUpTo(findStartDestination(navController.graph).id) {
-//                    saveState = true
-//                }
-//            }
-//        }
-//    }
 }
 
 /**
